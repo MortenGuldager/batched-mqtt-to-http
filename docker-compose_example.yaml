@@ -1,0 +1,13 @@
+services:
+    mqtt2http:
+        build: .
+        image: mqtt2http
+        restart: unless-stopped
+        environment:
+            - MQTT_BROKER=mqtt://mqtt.example:1883
+            - MQTT_TOPIC=#
+            - HTTP_ENDPOINT=https://http.example.com/endpoint
+            - HTTP_AUTH_SECRET=reallyreallysecret
+            - BATCH_SIZE=1000
+
+             
