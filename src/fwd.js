@@ -19,7 +19,7 @@ client.on('connect', () => {
 });
 
 client.on('message', (topic, message) => {
-    messageQueue.push({ topic, message: message.toString() });
+    messageQueue.push({ topic, message: message.toString(), timestamp: Date.now() });
 
     if (messageQueue.length >= BATCH_SIZE) {
         flushMessages();
